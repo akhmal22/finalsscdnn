@@ -1,0 +1,54 @@
+import h5py
+import matplotlib as plt
+import numpy as np
+import PIL
+from PIL import Image
+
+
+
+def jpg_image_to_array(path_to_image):
+    '''
+        thanks to awnihannun
+    '''
+    with Image.open(path_to_image) as image:
+        im_arr = np.fromstring(image.tobytes(),dtype=np.uint8)
+        im_arr = im_arr.reshape((image.size[1],image.size[0],3))
+
+    return im_arr
+
+#salju_array = np.empty_like(jpg_image_to_array("img//img//00001.jpg"))
+#salju_list=[]
+counter = 1
+for itr in range(0,10):
+    img = jpg_image_to_array("img//img//{}.jpg".format(str(counter).zfill(5)))
+    print(jpg_image_to_array("img//img//{}.jpg".format(str(counter).zfill(5)))) 
+    #salju_list.insert(itr,jpg_image_to_array("img//img//{}.jpg".format(str(counter).zfill(5))))
+    #print(salju_list)
+    #salju_array.concatenate(salju_array,img,axis=0)
+    counter+=1
+
+index = 10
+plt.imshow(img[index])
+#salju_array = np.asarray(salju_list)
+#print(salju_array)
+
+#print(img)
+
+#readTrdset= h5py.File('../datasets/train_catvnoncat.h5','r')
+#trset_x = np.array(readTrdset["train_set_x"][:])
+#trset_y = np.array(readTrdset["train_set_y"][:])
+
+#print(trset_x)
+#index = 200
+#plt.imshow(trset_x[index])
+#print("image asarray: ")
+
+#im = Image.open("../smileypup.jpg")
+#im.show()
+
+#print(jpg_image_to_array("../images/my_image.jpg"))
+
+#list(im.getdata())
+
+#for pixel in iter(im.getdata()):
+#    print(pixel)
