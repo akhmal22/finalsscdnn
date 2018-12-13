@@ -26,19 +26,10 @@ def make_square(path_to_img):
                         (desired_size-new_size[1])//2))
     return new_im
 
-for itr in range(0,240):
-    if Path("train//gambar-ular{}.jpg".format(str(itr+1))).is_file():
-        imsq = make_square("train//gambar-ular{}.jpg".format(str(itr+1)))
-        imsq.save("train//gambar-ularsq{}.jpg".format(str(itr+1)))
-        print("oke")
-    else:
-        print("nah")
-    
-
-for itr in range(0,60):
-    if Path("test//gambar-ular{}.jpg".format(str(itr+241))).is_file():
-        imsq = make_square("test//gambar-ular{}.jpg".format(str(itr+241)))
-        imsq.save("test//gambar-ularsq{}.jpg".format(str(itr+241)))
+for itr in range(301,374):
+    if Path("gambar-ular//gambar-ular{}.jpg".format(str(itr))).is_file():
+        imsq = make_square("gambar-ular//gambar-ular{}.jpg".format(str(itr)))
+        imsq.save("datasets//test//gambar-ularsq{}.jpg".format(str(itr)))
         print("oke")
     else:
         print("nah")
